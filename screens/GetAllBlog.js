@@ -4,7 +4,6 @@ import { AntDesign, EvilIcons } from '@expo/vector-icons';
 import * as SQLite from 'expo-sqlite'
 import { useNavigation } from '@react-navigation/native';
 
-
 const GetAllBlog = () => {
     const db = SQLite.openDatabase('blogs.db')
     const [data, setData] = useState([])
