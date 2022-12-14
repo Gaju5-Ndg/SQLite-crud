@@ -9,9 +9,9 @@ const EditBlog = ({ route, navigation }) => {
     const [likes, setLikes] = useState('')
     const [currentBlog, setCurrentBlog] = useState([])
 
-    console.log(currentBlog[0].descriptions);
+    
     const id = route.params.id
-    // console.log(id);
+    console.log(currentBlog.likes);
 
     useEffect(() => {
         const getSingleBlog = () => {
@@ -59,13 +59,13 @@ const EditBlog = ({ route, navigation }) => {
             >Blog
             </Text>
           {currentBlog &&  
-            <View style={styles.userRequest} key={currentBlog[0].id}>
+            <View style={styles.userRequest} key={currentBlog.id}>
                 <TextInput
                     onChangeText={(value) => setTitle(value)}
                     style={styles.requestText}
                     
                     value={title}
-                    defaultValue={currentBlog[0].title}
+                    defaultValue={currentBlog.title}
                 />
                 <TextInput
                     onChangeText={(value) => setDescriptions(value)}
@@ -73,14 +73,13 @@ const EditBlog = ({ route, navigation }) => {
                   
                     multiline
                     value={descriptions}
-                    defaultValue={currentBlog[0].descriptions}
+                    defaultValue={currentBlog.descriptions}
                 />
                 <TextInput
                     onChangeText={(value) => setLikes(value)}
                     style={styles.requestText}
-                  
                     value={likes}
-                    defaultValue={currentBlog[0].likes}
+                    defaultValue={currentBlog.likes}
                 />
                 <TouchableOpacity
                     onPress={() => editBlog()}
